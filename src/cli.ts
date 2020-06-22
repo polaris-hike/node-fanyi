@@ -8,7 +8,6 @@ program.version('0.0.1')
     .usage('<anglish>')
     .arguments('<english>')
     .action(function (english) {
-        console.log('english');
         translate(english)
     })
 
