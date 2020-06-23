@@ -7,10 +7,21 @@ export const translate = (word: string) => {
     const appSecret = 'P6RLVp8gP6DHnsmdjJEn';
     const salt = Math.random();
     const sign = md5(appid + word + salt + appSecret);
+    let from,to;
+    if(/[a-zA-Z]/.test(word[0])) {
+        //英译中
+        from = 'en';
+        to = 'zh'
+    }else {
+        //中译英
+        from = 'zh';
+        to = 'en'
+    }
+
     const query = querystring.stringify({
         q: word,
-        from: 'en',
-        to: 'zh',
+        from,
+        to,
         appid,
         salt,
         sign
